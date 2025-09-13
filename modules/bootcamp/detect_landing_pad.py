@@ -102,7 +102,7 @@ class DetectLandingPad:
         predictions = self.__model.predict(
             source=image,
             conf=0.7,
-            device="cpu",
+            device=self.__DEVICE,
             verbose=False,
         )
 
