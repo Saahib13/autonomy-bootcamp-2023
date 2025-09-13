@@ -77,11 +77,10 @@ class DecisionSimpleWaypoint(base_decision.BaseDecision):
 
         # Do something based on the report and the state of this class...
 
-        if dist_squared > self.acceptance_radius**2:
-            if report.status.name == "HALTED":
+        if report.status.name == "HALTED":
+            if dist_squared > self.acceptance_radius**2:
                 command = commands.Command.create_set_relative_destination_command(dx, dy)
-        else:
-            if report.status.name == "HALTED":
+            else:
                 command = commands.Command.create_land_command()
         # ============
         # ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
